@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include
+        layout="@layout/main_toolbar"
+        android:id="@+id/toolbar"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:id="@+id/topLogo"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/sideMenuTextHeadingStyle"
+            android:layout_width="0dp"
+            android:id="@+id/tvWelcomeBack"
+            android:text="@string/villa_rica_wholesale"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="@dimen/_12ssp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/etEmail"
+            app:layout_constraintEnd_toEndOf="@+id/etEmail"
+            app:layout_constraintTop_toBottomOf="@+id/topLogo"
+            android:layout_marginTop="@dimen/_80sdp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+           style="@style/EditTextStyle"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/etEmail"
+            android:background="@drawable/bg_rounded_border_gray"
+            android:inputType="textPersonName"
+            android:layout_marginTop="@dimen/_36sdp"
+            app:drawableEndCompat="@drawable/ic_email"
+            android:hint="@string/email" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/EditTextStyle"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/etPassword"
+            android:background="@drawable/bg_rounded_border_gray"
+            android:inputType="textPassword"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/password"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivHidePW"
+            app:layout_constraintEnd_toEndOf="@+id/etPassword"
+            app:srcCompat="@drawable/ic_hide_eye"
+            app:tint="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="@+id/etPassword"
+            app:layout_constraintBottom_toBottomOf="@+id/etPassword"
+            android:layout_marginEnd="@dimen/_10sdp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/ButtonPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/btnLogin"
+            android:text="@string/login"
+            android:layout_marginTop="@dimen/_40sdp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/sideMenuTextHeadingStyle"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:text="Developed In Pakistan By Elite Apps \n
+eliteapps.com.pk"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/_40sdp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VillRiceWearHouseAndroid</string>
+    <string name="villa_rica_wholesale">Villa Rica Wholesale</string>
+    <string name="email">Enter your email</string>
+    <string name="password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+</resources>
