@@ -1,8 +1,21 @@
 <resources>
-    <string name="app_name">VillRiceWearHouseAndroid</string>
+    <string name="app_name">Blood Donation</string>
     <string name="villa_rica_wholesale">Villa Rica Wholesale</string>
     <string name="email">Enter your email</string>
     <string name="password">Enter your password</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
+    <string name="find_donor">Find Donor</string>
+    <string name="add_donor">Add Donor</string>
+    <string name="enter_name">Enter you name</string>
+    <string name="select_city">Select your city</string>
+    <string name="name">"Name "</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="area">Area</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="available_donors">Available Donors</string>
+    <string name="select_blood_group">Select your blood group</string>
+    <string name="search_donor">Search Donor</string>
+    <string name="enter_phone">Enter your phone</string>
+    <string name="donor_details">Donor Details</string>
 </resources>

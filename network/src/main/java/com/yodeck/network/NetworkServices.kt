@@ -1,10 +1,15 @@
 package com.yodeck.network
 
+import com.yodeck.models.AddDonorResponse
 import com.yodeck.models.GetDeviceResponse
 import com.yodeck.models.SessionResponse
 import com.yodeck.models.base_response.BaseResponse
+import com.yodeck.models.donors_response.DonorsResponse
 import com.yodeck.models.getscreen.GetScreenResponse
 import com.yodeck.models.movies.MoviesResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.Response
 import retrofit2.http.*
 
 interface NetworkServices {
@@ -13,12 +18,17 @@ interface NetworkServices {
     @POST("login")
     suspend fun login(@FieldMap hashMap: HashMap<String, Any>): SessionResponse
 
-    @GET("search/multi")
-    suspend fun searchMulti(@QueryMap hashMap: HashMap<String, Any>): MoviesResponse
-
     @FormUrlEncoded
-    @POST("get-screen")
-    suspend fun getScreen(@FieldMap hashMap: HashMap<String, Any>): GetScreenResponse
+    @POST("find/donors")
+    suspend fun findDonors(@FieldMap hashMap: HashMap<String, Any>): DonorsResponse
+
+    @Multipart
+    @POST("add/donor")
+    suspend fun addDonor(
+        @Part image: MultipartBody.Part,
+        @PartMap params: Map<String, @JvmSuppressWildcards RequestBody>
+    ): retrofit2.Response<AddDonorResponse>
+
 
     @FormUrlEncoded
     @POST("last-update")

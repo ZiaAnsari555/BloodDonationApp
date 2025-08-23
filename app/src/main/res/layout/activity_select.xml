@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/_80sdp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ButtonPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btnFindDonor"
+        android:text="@string/find_donor"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ButtonPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btnAddDonor"
+        android:text="@string/add_donor"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+
+</LinearLayout>

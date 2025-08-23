@@ -14,9 +14,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ivMenu"
-            android:src="@drawable/ic_hamburger"
+            android:src="@drawable/arrow_back"
             android:padding="@dimen/_10sdp"
-            android:visibility="visible"
+            android:visibility="gone"
+            tools:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -29,34 +30,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="@dimen/_14sdp"
-            android:layout_height="@dimen/_14sdp"
-            android:id="@+id/tvCartCount"
-            tools:text="1"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_rounded_green"
-            android:gravity="center"
-            tools:visibility="visible"
-            android:visibility="gone"
-            style="@style/FontMontserratMedium"
-            app:layout_constraintTop_toTopOf="@+id/ivCart"
-            app:layout_constraintEnd_toEndOf="@+id/ivCart"
-            app:layout_constraintTop_toBottomOf="@+id/ivCart"
-            android:layout_margin="@dimen/_5sdp"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ivCart"
-            android:src="@drawable/ic_cart"
-            android:padding="@dimen/_12sdp"
-            tools:visibility="visible"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
 

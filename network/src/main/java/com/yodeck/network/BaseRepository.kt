@@ -1,10 +1,15 @@
 package com.yodeck.network
 
+import com.yodeck.models.AddDonorResponse
 import com.yodeck.models.GetDeviceResponse
 import com.yodeck.models.SessionResponse
 import com.yodeck.models.base_response.BaseResponse
+import com.yodeck.models.donors_response.DonorsResponse
 import com.yodeck.models.getscreen.GetScreenResponse
 import com.yodeck.models.movies.MoviesResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Response
 
 
 class BaseRepository {
@@ -16,12 +21,12 @@ class BaseRepository {
         return networkServices.login(hashMap)
     }
 
-    suspend fun searchMulti(hashMap: HashMap<String, Any>): MoviesResponse {
-        return networkServices.searchMulti(hashMap)
+    suspend fun getDonors(hashMap: HashMap<String, Any>): DonorsResponse {
+        return networkServices.findDonors(hashMap)
     }
 
-    suspend fun getScreen(hashMap: HashMap<String, Any>): GetScreenResponse {
-        return networkServices.getScreen(hashMap)
+    suspend fun  addDonor(multipartBody: MultipartBody.Part, requestBody: Map<String, RequestBody>): Response<AddDonorResponse> {
+        return networkServices.addDonor(multipartBody, requestBody)
     }
 
     suspend fun getLastUpdate(hashMap: HashMap<String, Any>): BaseResponse {

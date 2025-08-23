@@ -21,10 +21,10 @@ class SplashScreen: BaseActivity() {
                     moveToMainDashboard()
                 }
                 false -> {
-                    moveToLogin()
+                    moveToMainDashboard()
                 }
                 else -> {
-                    moveToLogin()
+                    moveToMainDashboard()
                 }
             }
 
@@ -34,16 +34,16 @@ class SplashScreen: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
         viewModel.init(this)
-        SharedPrefs.getInstance(this).userData?.let {
-            viewModel.userData.value = it
-        }
+//        SharedPrefs.getInstance(this).userData?.let {
+//            viewModel.userData.value = it
+//        }
         lifecycleScope.launch {
             viewModel.giveDelay()
         }
     }
 
     private fun moveToMainDashboard(){
-        MainActivity.startThisActivity(this)
+        SelectActivity.startThisActivity(this)
         finish()
     }
 

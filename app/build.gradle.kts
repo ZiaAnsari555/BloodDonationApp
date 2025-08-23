@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.villarica.villarica"
+        applicationId = "com.eliteapps.blooddonation"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -65,4 +65,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.imagepicker)
+    implementation(libs.circleImageView)
+    implementation(libs.okhttp)
+
+
+
 }

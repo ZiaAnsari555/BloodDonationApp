@@ -1,16 +1,22 @@
 package com.yodeck.network
 
 import okhttp3.Interceptor
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 import java.util.concurrent.TimeUnit
 
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://api.themoviedb.org/3/"
+    private const val BASE_URL = "https://donorsdatabase.space/api/"
     const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).client(createOkHttpClient()).build()
@@ -50,6 +56,22 @@ object RetrofitInstance {
     val networkServices: NetworkServices by lazy {
         retrofit.create(NetworkServices::class.java)
     }
+
+    fun prepareFilePart(partName: String, file: File): MultipartBody.Part {
+        val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())
+        return MultipartBody.Part.createFormData(partName, file.name, requestFile)
+    }
+
+    fun preparePartMap(params: HashMap<String, Any>): Map<String, RequestBody> {
+        val map = HashMap<String, RequestBody>()
+        for ((key, value) in params) {
+            map[key] = value.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull())
+        }
+        return map
+    }
+
+
 }
 
 object SessionExpired

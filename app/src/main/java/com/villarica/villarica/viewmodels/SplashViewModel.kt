@@ -19,7 +19,8 @@ class SplashViewModel(application: Application): BaseViewModel(application) {
     suspend fun giveDelay() {
         withContext(Dispatchers.Main) {
             delay(delay)
-            _isUserSignedIn.postValue(isSignedIn())
+//            _isUserSignedIn.postValue(isSignedIn())
+            _isUserSignedIn.postValue(true)
         }
     }
 
