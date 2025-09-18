@@ -62,7 +62,7 @@ class SearchDonorActivity: BaseActivity() {
 
     private fun showCityDialog(context: Context, onSelected: (String) -> Unit) {
         val cities = arrayOf(
-            "Lahore"
+            "Faisalabad"
         )
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Select City")

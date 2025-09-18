@@ -39,10 +39,51 @@ class AddDonorActivity : BaseActivity() {
             }
             toolbar.tvTitle.text = getString(R.string.add_donor)
             btnAddDonor.setOnClickListener {
-                if (city.isNullOrEmpty() || bloodGroup.isNullOrEmpty() || etName.text.isNullOrEmpty() || etPhoneNumber.text.isNullOrEmpty() || file == null) {
+                // Check for a valid city selection
+                if (city.isNullOrEmpty()) {
                     Toast.makeText(
                         this@AddDonorActivity,
-                        "Required Data Missing!",
+                        "Please select a city!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+
+// Check if a blood group is selected
+                if (bloodGroup.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this@AddDonorActivity,
+                        "Please select a blood group!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+
+// Check if the donor's name is entered
+                if (etName.text.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this@AddDonorActivity,
+                        "Please enter your name!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+
+// Check if the phone number is entered
+                if (etPhoneNumber.text.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this@AddDonorActivity,
+                        "Please enter your phone number!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+
+// Check if a file (e.g., an image) is selected
+                if (file == null) {
+                    Toast.makeText(
+                        this@AddDonorActivity,
+                        "Please upload an image!",
                         Toast.LENGTH_SHORT
                     ).show()
                     return@setOnClickListener
@@ -88,7 +129,7 @@ class AddDonorActivity : BaseActivity() {
 
     private fun showCityDialog(context: Context, onSelected: (String) -> Unit) {
         val cities = arrayOf(
-            "Lahore"
+            "Faisalabad"
         )
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Select City")
