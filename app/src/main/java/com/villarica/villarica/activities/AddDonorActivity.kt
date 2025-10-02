@@ -2,6 +2,7 @@ package com.villarica.villarica.activities
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -20,6 +21,7 @@ import com.villarica.villarica.databinding.ActivityAddDonorBinding
 import com.villarica.villarica.viewmodels.AddDonorViewModel
 import com.villarica.villarica.viewmodels.AvailableDonorsViewModel
 import java.io.File
+import java.util.Calendar
 
 class AddDonorActivity : BaseActivity() {
     private var binding: ActivityAddDonorBinding? = null
@@ -39,7 +41,7 @@ class AddDonorActivity : BaseActivity() {
             }
             toolbar.tvTitle.text = getString(R.string.add_donor)
             btnAddDonor.setOnClickListener {
-                if (city.isNullOrEmpty() || bloodGroup.isNullOrEmpty() || etName.text.isNullOrEmpty() || etPhoneNumber.text.isNullOrEmpty() || file == null) {
+                if (city.isNullOrEmpty() || bloodGroup.isNullOrEmpty() || etName.text.isNullOrEmpty() || etPhoneNumber.text.isNullOrEmpty() || tvDob.text.isNullOrEmpty() || file == null) {
                     Toast.makeText(
                         this@AddDonorActivity,
                         "Required Data Missing!",
@@ -49,8 +51,12 @@ class AddDonorActivity : BaseActivity() {
                 }
                 showLoading()
                 viewModel.addDonor(
-                    file!!, etName.text.toString(),
-                    bloodGroup!!, etPhoneNumber.text.toString(), city!!
+                    file!!,
+                    etName.text.toString(),
+                    bloodGroup!!,
+                    etPhoneNumber.text.toString(),
+                    city!!,
+                    tvDob.text.toString()
                 )
             }
             tvEnterCity.setOnClickListener {
@@ -64,6 +70,9 @@ class AddDonorActivity : BaseActivity() {
                     bloodGroup = selected
                     tvSelectBloodType.text = bloodGroup
                 }
+            }
+            tvDob.setOnClickListener {
+                showDatePickerDialog()
             }
             profileImage.setOnClickListener {
                 showImagePickerDialog()
@@ -221,6 +230,38 @@ class AddDonorActivity : BaseActivity() {
             inputStream.copyTo(output)
         }
         return file
+    }
+
+    private fun showDatePickerDialog() {
+        // Get current date from Calendar
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Create a DatePickerDialog
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+                // Use String.format to add leading zeros for month and day
+                val selectedDate = String.format(
+                    "%d-%02d-%02d",
+                    selectedYear,
+                    selectedMonth + 1, // Add 1 because month is 0-based
+                    selectedDayOfMonth
+                )
+                binding?.tvDob?.text = selectedDate
+            },
+            year,
+            month,
+            day
+        )
+
+        // Set the maximum date to today to prevent selecting future dates
+        datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+
+        // Show the dialog
+        datePickerDialog.show()
     }
 
 

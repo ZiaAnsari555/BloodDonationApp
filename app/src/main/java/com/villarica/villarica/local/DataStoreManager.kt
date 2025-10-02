@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
 // Create DataStore extension property
-val Context.dataStore by preferencesDataStore(name = "wearhouse_prefs")
+val Context.dataStore by preferencesDataStore(name = "blood_prefs")
 
 class DataStoreManager(private val context: Context) {
 

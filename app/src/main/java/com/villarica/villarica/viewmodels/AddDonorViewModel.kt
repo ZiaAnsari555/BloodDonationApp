@@ -20,7 +20,7 @@ class AddDonorViewModel(application: Application): BaseViewModel(application) {
     val response = MutableLiveData<AddDonorResponse>()
     val error = MutableLiveData<String>()
 
-    fun addDonor(file: File,name: String, bloodGroup:String, phoneNumber:String, city: String){
+    fun addDonor(file: File,name: String, bloodGroup:String, phoneNumber:String, city: String, dob: String){
         val hashMap = getCommonParams()
         val imagePart = prepareFilePart("picture", file)
 
@@ -28,7 +28,8 @@ class AddDonorViewModel(application: Application): BaseViewModel(application) {
             "name" to name,
             "blood_group" to bloodGroup,
             "phone_number" to phoneNumber,
-            "city" to city
+            "city" to city,
+            "dob" to dob
         )
 
         val partMap = preparePartMap(params)

@@ -63,6 +63,14 @@
         android:hint="@string/select_city"
         app:drawableEndCompat="@drawable/down_arrow"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/TextViewStyleBordered"
+        android:id="@+id/tvDob"
+        android:inputType="textPersonName"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/select_date_of_birth"
+        app:drawableEndCompat="@drawable/down_arrow"/>
+
     <androidx.appcompat.widget.AppCompatEditText
         style="@style/EditTextStyleBordered"
         android:id="@+id/etPhoneNumber"

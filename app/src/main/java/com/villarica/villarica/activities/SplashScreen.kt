@@ -46,9 +46,4 @@ class SplashScreen: BaseActivity() {
         SelectActivity.startThisActivity(this)
         finish()
     }
-
-    private fun moveToLogin(){
-        LoginActivity.startThisActivity(this)
-        finish()
-    }
 }
