@@ -6,6 +6,16 @@
     android:orientation="vertical"
     android:padding="@dimen/_10sdp">
 
+    <ImageView
+        android:id="@+id/ivDonorPicture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        tools:ignore="ContentDescription"
+        android:src="@mipmap/ic_launcher_round"/>
+
+
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/FontMontserratSemiBold"
         android:layout_width="wrap_content"
@@ -110,7 +120,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:gravity="center"
+        android:weightSum="2"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp">
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/FontMontserratRegular"
@@ -119,19 +132,19 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="@dimen/_9sdp"
-            android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/mobile_number" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/FontMontserratSemiBold"
-            android:id="@+id/tvPhone"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_9sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            tools:text="8344803984" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/FontMontserratSemiBold"
+                android:id="@+id/tvPhone"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"
+                tools:text="8344803984" />
+
 
     </LinearLayout>
 

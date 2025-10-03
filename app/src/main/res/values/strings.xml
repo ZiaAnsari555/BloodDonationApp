@@ -18,5 +18,6 @@
     <string name="search_donor">Search Donor</string>
     <string name="enter_phone">Enter your phone</string>
     <string name="donor_details">Donor Details</string>
+    <string name="fda_city_residents">FDA CITY RESIDENTS</string>
     <string name="select_date_of_birth">Select DOB</string>
 </resources>
