@@ -20,6 +20,7 @@ class SelectActivity: BaseActivity() {
         binding?.btnAddDonor?.setOnClickListener {
             AddDonorActivity.startThisActivity(this)
         }
+        loadBannerAd(binding?.adView!!)
     }
 
     companion object {

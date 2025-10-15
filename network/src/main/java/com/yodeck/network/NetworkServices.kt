@@ -29,6 +29,12 @@ interface NetworkServices {
         @PartMap params: Map<String, @JvmSuppressWildcards RequestBody>
     ): retrofit2.Response<AddDonorResponse>
 
+    @Multipart
+    @POST("add/donor")
+    suspend fun addDonor(
+        @PartMap params: Map<String, @JvmSuppressWildcards RequestBody>
+    ): retrofit2.Response<AddDonorResponse>
+
 
     @FormUrlEncoded
     @POST("last-update")

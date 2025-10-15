@@ -29,6 +29,7 @@ class AvailableDonorsActivity: BaseActivity() {
                 finish()
             }
             toolbar.tvTitle.text = getString(R.string.available_donors)
+            loadBannerAd(adView)
         }
         initRecyclerView()
         viewModel.init(this)

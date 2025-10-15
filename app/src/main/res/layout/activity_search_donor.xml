@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,38 +11,52 @@
         android:id="@+id/toolbar"
         layout="@layout/main_toolbar"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/logo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextViewStyleBordered"
+            android:id="@+id/tvSelectBloodType"
+            android:inputType="textPersonName"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/select_blood_group"
+            app:drawableEndCompat="@drawable/down_arrow"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextViewStyleBordered"
+            android:id="@+id/tvEnterCity"
+            android:inputType="textPersonName"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="@string/select_city"
+            app:drawableEndCompat="@drawable/down_arrow"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/ButtonPrimary"
+            android:id="@+id/btnAddDonor"
+            android:text="@string/search_donor"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:adSize="BANNER"
+        app:adUnitId="@string/add_banner_id" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextViewStyleBordered"
-        android:id="@+id/tvSelectBloodType"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/select_blood_group"
-        app:drawableEndCompat="@drawable/down_arrow"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextViewStyleBordered"
-        android:id="@+id/tvEnterCity"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/select_city"
-        app:drawableEndCompat="@drawable/down_arrow"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/ButtonPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/btnAddDonor"
-        android:text="@string/search_donor"
-        android:layout_margin="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

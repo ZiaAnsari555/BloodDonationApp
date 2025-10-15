@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,82 +11,97 @@
         android:id="@+id/toolbar"
         layout="@layout/main_toolbar"/>
 
-    <FrameLayout
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+       <FrameLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:clipToOutline="true"
+           android:layout_margin="@dimen/_20sdp">
+
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/profileImage"
+               android:layout_width="@dimen/_96sdp"
+               android:layout_height="@dimen/_96sdp"
+               android:layout_gravity="center"
+               tools:src="@drawable/dummy"
+               app:civ_border_width="2dp"
+               app:civ_border_color="#FF000000" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+               android:id="@+id/cameraOverlay"
+               android:layout_width="@dimen/_96sdp"
+               android:layout_height="@dimen/_96sdp"
+               android:layout_margin="@dimen/_2sdp"
+               android:layout_gravity=""
+               android:background="@drawable/circle_shape"
+               android:scaleType="centerInside"
+               android:padding="@dimen/_40sdp"
+               android:src="@drawable/camera" />
+
+       </FrameLayout>
+
+       <androidx.appcompat.widget.AppCompatEditText
+           style="@style/EditTextStyleBordered"
+           android:id="@+id/etName"
+           android:inputType="textPersonName"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:hint="@string/enter_name"/>
+
+       <androidx.appcompat.widget.AppCompatTextView
+           style="@style/TextViewStyleBordered"
+           android:id="@+id/tvSelectBloodType"
+           android:inputType="textPersonName"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:hint="@string/select_blood_group"
+           app:drawableEndCompat="@drawable/down_arrow"/>
+
+       <androidx.appcompat.widget.AppCompatTextView
+           style="@style/TextViewStyleBordered"
+           android:id="@+id/tvEnterCity"
+           android:inputType="textPersonName"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:hint="@string/select_city"
+           app:drawableEndCompat="@drawable/down_arrow"/>
+
+       <androidx.appcompat.widget.AppCompatTextView
+           style="@style/TextViewStyleBordered"
+           android:id="@+id/tvDob"
+           android:inputType="textPersonName"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:hint="@string/select_date_of_birth"
+           app:drawableEndCompat="@drawable/down_arrow"/>
+
+       <androidx.appcompat.widget.AppCompatEditText
+           style="@style/EditTextStyleBordered"
+           android:id="@+id/etPhoneNumber"
+           android:inputType="phone"
+           android:layout_marginTop="@dimen/_10sdp"
+           android:hint="@string/enter_phone"
+           android:drawableEnd="@drawable/ic_phone"/>
+
+       <androidx.appcompat.widget.AppCompatButton
+           style="@style/ButtonPrimary"
+           android:id="@+id/btnAddDonor"
+           android:text="@string/add_donor"
+           android:layout_margin="@dimen/_20sdp"
+           android:layout_marginTop="@dimen/_20sdp"/>
+
+   </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:clipToOutline="true"
-        android:layout_margin="@dimen/_20sdp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileImage"
-            android:layout_width="@dimen/_96sdp"
-            android:layout_height="@dimen/_96sdp"
-            android:layout_gravity="center"
-            tools:src="@drawable/dummy"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/cameraOverlay"
-            android:layout_width="@dimen/_96sdp"
-            android:layout_height="@dimen/_96sdp"
-            android:layout_margin="@dimen/_2sdp"
-            android:layout_gravity=""
-            android:background="@drawable/circle_shape"
-            android:scaleType="centerInside"
-            android:padding="@dimen/_40sdp"
-            android:src="@drawable/camera" />
-
-    </FrameLayout>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        style="@style/EditTextStyleBordered"
-        android:id="@+id/etName"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/enter_name"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextViewStyleBordered"
-        android:id="@+id/tvSelectBloodType"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/select_blood_group"
-        app:drawableEndCompat="@drawable/down_arrow"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextViewStyleBordered"
-        android:id="@+id/tvEnterCity"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/select_city"
-        app:drawableEndCompat="@drawable/down_arrow"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextViewStyleBordered"
-        android:id="@+id/tvDob"
-        android:inputType="textPersonName"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/select_date_of_birth"
-        app:drawableEndCompat="@drawable/down_arrow"/>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        style="@style/EditTextStyleBordered"
-        android:id="@+id/etPhoneNumber"
-        android:inputType="phone"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/enter_phone"
-        android:drawableEnd="@drawable/ic_phone"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        style="@style/ButtonPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/btnAddDonor"
-        android:text="@string/add_donor"
-        android:layout_margin="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:adSize="BANNER"
+        app:adUnitId="@string/add_banner_id" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

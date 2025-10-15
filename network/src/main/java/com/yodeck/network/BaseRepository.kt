@@ -29,6 +29,11 @@ class BaseRepository {
         return networkServices.addDonor(multipartBody, requestBody)
     }
 
+
+    suspend fun  addDonor(requestBody: Map<String, RequestBody>): Response<AddDonorResponse> {
+        return networkServices.addDonor(requestBody)
+    }
+
     suspend fun getLastUpdate(hashMap: HashMap<String, Any>): BaseResponse {
         return networkServices.getLastUpdate(hashMap)
     }

@@ -3,14 +3,17 @@ package com.villarica.villarica.activities
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import com.google.gson.Gson
 import com.villarica.villarica.R
 import com.villarica.villarica.base.BaseActivity
 import com.villarica.villarica.databinding.ActivityDonorDetailsBinding
+import com.villarica.villarica.utils.Helper.calculateAge
 import com.yodeck.models.donors_response.Data
 
 class DonorDetailsActivity :BaseActivity(){
@@ -26,6 +29,7 @@ class DonorDetailsActivity :BaseActivity(){
                 finish()
             }
             toolbar.tvTitle.text = getString(R.string.donor_details)
+            loadBannerAd(adView)
         }
         intent?.extras?.apply {
             val donorJson = getString("donor")
@@ -34,11 +38,16 @@ class DonorDetailsActivity :BaseActivity(){
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setData(item: Data){
         binding?.tvName?.text = item.name
         binding?.tvCity?.text = item.city
         binding?.tvPhone?.text = item.phone
         binding?.tvBloodGroup?.text = item.blood_group
+        binding?.tvDob?.text = item.dob
+        if (item.dob.isNotEmpty()){
+            binding?.tvAge?.text = "${calculateAge(item.dob)} years"
+        }
     }
 
 

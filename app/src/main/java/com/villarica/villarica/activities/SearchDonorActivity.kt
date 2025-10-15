@@ -44,6 +44,7 @@ class SearchDonorActivity: BaseActivity() {
                     tvSelectBloodType.text = bloodGroup
                 })
             }
+            loadBannerAd(adView)
         }
     }
 

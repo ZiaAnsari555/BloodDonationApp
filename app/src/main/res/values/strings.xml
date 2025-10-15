@@ -1,4 +1,6 @@
 <resources>
+    <string name="add_id">ca-app-pub-1452245892926859~8396926072</string>
+    <string name="add_banner_id">ca-app-pub-1452245892926859/7891737038</string>
     <string name="app_name">Blood Donation</string>
     <string name="villa_rica_wholesale">Villa Rica Wholesale</string>
     <string name="email">Enter your email</string>
@@ -20,4 +22,6 @@
     <string name="donor_details">Donor Details</string>
     <string name="fda_city_residents">FDA CITY RESIDENTS</string>
     <string name="select_date_of_birth">Select DOB</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="age">Age</string>
 </resources>

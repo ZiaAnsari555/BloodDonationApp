@@ -82,23 +82,23 @@ class AddDonorActivity : BaseActivity() {
                 }
 
 // Check if a file (e.g., an image) is selected
-                if (file == null) {
-                    Toast.makeText(
-                        this@AddDonorActivity,
-                        "Please upload an image!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
-                }
+//                if (file == null) {
+//                    Toast.makeText(
+//                        this@AddDonorActivity,
+//                        "Please upload an image!",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    return@setOnClickListener
+//                }
                 showLoading()
                 viewModel.addDonor(
-                    file!!,
-                    etName.text.toString(),
-                    bloodGroup!!,
-                    etPhoneNumber.text.toString(),
-                    city!!,
-                    tvDob.text.toString()
-                )
+                        file,
+                        etName.text.toString(),
+                        bloodGroup!!,
+                        etPhoneNumber.text.toString(),
+                        city!!,
+                        tvDob.text.toString()
+                    )
             }
             tvEnterCity.setOnClickListener {
                 showCityDialog(this@AddDonorActivity) { selected ->
@@ -118,6 +118,7 @@ class AddDonorActivity : BaseActivity() {
             profileImage.setOnClickListener {
                 showImagePickerDialog()
             }
+            loadBannerAd(adView)
         }
 
         viewModel.init(this)
@@ -304,7 +305,5 @@ class AddDonorActivity : BaseActivity() {
         // Show the dialog
         datePickerDialog.show()
     }
-
-
 
 }

@@ -6,5 +6,6 @@ data class Data(
     val id: Int,
     val name: String,
     val phone: String,
-    val picture: String
+    val picture: String,
+    val dob: String
 )

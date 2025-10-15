@@ -1,12 +1,16 @@
 package com.villarica.villarica.adapters
 
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.villarica.villarica.databinding.ItemDonorBinding
+import com.villarica.villarica.utils.Helper
+import com.villarica.villarica.utils.Helper.calculateAge
 import com.yodeck.models.donors_response.Data
 
 class DonorsAdapter(val onItemClick: (item: Data) -> Unit): Adapter<RecyclerView.ViewHolder>() {
@@ -25,6 +29,7 @@ class DonorsAdapter(val onItemClick: (item: Data) -> Unit): Adapter<RecyclerView
         return list.size
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = list[position]
         when(holder){
@@ -34,6 +39,10 @@ class DonorsAdapter(val onItemClick: (item: Data) -> Unit): Adapter<RecyclerView
                 holder.itemDonorsBinding.tvCity.text = item.city
                 holder.itemDonorsBinding.tvPhone.text = item.phone
                 holder.itemDonorsBinding.tvBloodGroup.text = item.blood_group
+                holder.itemDonorsBinding.tvDob.text = item.dob
+                if (item.dob.isNotEmpty()){
+                    holder.itemDonorsBinding.tvAge.text = "${calculateAge(item.dob)} years"
+                }
                 holder.itemDonorsBinding.root.setOnClickListener {
                     onItemClick(item)
                 }

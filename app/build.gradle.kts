@@ -68,7 +68,5 @@ dependencies {
     implementation(libs.imagepicker)
     implementation(libs.circleImageView)
     implementation(libs.okhttp)
-
-
-
+    implementation("com.google.android.gms:play-services-ads:23.0.0")
 }

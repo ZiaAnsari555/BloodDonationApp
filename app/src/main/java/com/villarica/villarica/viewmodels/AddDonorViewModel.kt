@@ -20,9 +20,7 @@ class AddDonorViewModel(application: Application): BaseViewModel(application) {
     val response = MutableLiveData<AddDonorResponse>()
     val error = MutableLiveData<String>()
 
-    fun addDonor(file: File,name: String, bloodGroup:String, phoneNumber:String, city: String, dob: String){
-        val hashMap = getCommonParams()
-        val imagePart = prepareFilePart("picture", file)
+    fun addDonor(file: File?,name: String, bloodGroup:String, phoneNumber:String, city: String, dob: String){
 
         val params = hashMapOf<String, Any>(
             "name" to name,
@@ -36,7 +34,11 @@ class AddDonorViewModel(application: Application): BaseViewModel(application) {
 
         viewModelScope.launch {
             try {
-                val respone = repo.addDonor(imagePart, partMap)
+                var respone = repo.addDonor(partMap)
+                if (file != null){
+                    val imagePart = prepareFilePart("picture", file)
+                    respone = repo.addDonor(imagePart, partMap)
+                }
                 if (respone.isSuccessful) {
                     response.value = respone.body()
                 } else {

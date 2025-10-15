@@ -13,7 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         tools:ignore="ContentDescription"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@drawable/logo"/>
 
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -145,6 +145,67 @@
                 android:textSize="@dimen/_9sdp"
                 tools:text="8344803984" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_rounded_gray">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/FontMontserratRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:text="@string/date_of_birth" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/FontMontserratSemiBold"
+            android:id="@+id/tvDob"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            tools:text="13-09-2330" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/FontMontserratRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:text="@string/age" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/FontMontserratSemiBold"
+            android:id="@+id/tvAge"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            tools:text="10" />
 
     </LinearLayout>
 
