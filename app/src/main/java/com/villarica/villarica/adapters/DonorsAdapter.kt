@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.villarica.villarica.databinding.ItemDonorBinding
 import com.villarica.villarica.utils.Helper
 import com.villarica.villarica.utils.Helper.calculateAge
+import com.villarica.villarica.utils.Helper.formatPakistaniNumber
 import com.yodeck.models.donors_response.Data
 
 class DonorsAdapter(val onItemClick: (item: Data) -> Unit): Adapter<RecyclerView.ViewHolder>() {
@@ -37,7 +38,7 @@ class DonorsAdapter(val onItemClick: (item: Data) -> Unit): Adapter<RecyclerView
                 holder.itemDonorsBinding.tvIndex.text = (position+1).toString()
                 holder.itemDonorsBinding.tvName.text = item.name
                 holder.itemDonorsBinding.tvCity.text = item.city
-                holder.itemDonorsBinding.tvPhone.text = item.phone
+                holder.itemDonorsBinding.tvPhone.text = formatPakistaniNumber( item.phone)
                 holder.itemDonorsBinding.tvBloodGroup.text = item.blood_group
                 holder.itemDonorsBinding.tvDob.text = item.dob
                 if (item.dob.isNotEmpty()){

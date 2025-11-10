@@ -8,6 +8,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -40,6 +43,35 @@ class AddDonorActivity : BaseActivity() {
                 finish()
             }
             toolbar.tvTitle.text = getString(R.string.add_donor)
+            binding?.etPhoneNumber?.filters = arrayOf(InputFilter.LengthFilter(13)) // max length including 2 spaces
+
+            binding?.etPhoneNumber?.addTextChangedListener(object : TextWatcher {
+                private var isEditing = false
+
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    if (isEditing) return
+                    isEditing = true
+
+                    val digits = s.toString().filter { it.isDigit() }.take(11) // only keep 11 digits
+
+                    val formatted = when {
+                        digits.length > 7 -> "${digits.take(4)} ${digits.substring(4, 7)} ${digits.drop(7)}"
+                        digits.length > 4 -> "${digits.take(4)} ${digits.drop(4)}"
+                        else -> digits
+                    }
+
+                    binding?.etPhoneNumber?.setText(formatted)
+                    binding?.etPhoneNumber?.setSelection(formatted.length)
+
+                    isEditing = false
+                }
+            })
+
+
+
             btnAddDonor.setOnClickListener {
                 // Check for a valid city selection
                 if (city.isNullOrEmpty()) {

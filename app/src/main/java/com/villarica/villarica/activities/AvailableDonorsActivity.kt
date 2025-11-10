@@ -2,9 +2,11 @@ package com.villarica.villarica.activities
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import com.villarica.villarica.R
@@ -12,6 +14,9 @@ import com.villarica.villarica.adapters.DonorsAdapter
 import com.villarica.villarica.base.BaseActivity
 import com.villarica.villarica.databinding.ActivityAvailableDonorsBinding
 import com.villarica.villarica.viewmodels.AvailableDonorsViewModel
+import com.yodeck.models.donors_response.Data
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class AvailableDonorsActivity: BaseActivity() {
     private var binding : ActivityAvailableDonorsBinding? = null
@@ -41,14 +46,27 @@ class AvailableDonorsActivity: BaseActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun AvailableDonorsViewModel.init(lifecycleOwner: LifecycleOwner) {
         viewModel.response.observe(lifecycleOwner) {
             hideLoading()
             when (it.success) {
                 true -> {
+                    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
                     binding?.apply {
                         it.data.let { list ->
-                            adapter?.list = list
+                            // Sort by dob (youngest first)
+                            val sortedList = list.sortedByDescending {
+                                if (it.dob.isNotEmpty()) {
+                                    LocalDate.parse(it.dob, formatter)
+                                } else {
+                                    // Return a very old date if dob is missing,
+                                    // so it appears at the bottom of the list
+                                    LocalDate.MAX
+                                }
+                            }
+                            adapter?.list = sortedList.toCollection(ArrayList())
+
                         }
                     }
                 }

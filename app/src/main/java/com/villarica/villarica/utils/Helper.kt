@@ -27,4 +27,15 @@ object Helper {
             null
         }
     }
+
+    fun formatPakistaniNumber(number: String): String {
+        val digits = number.filter { it.isDigit() }
+
+        return if (digits.length == 11) {
+            "${digits.substring(0, 4)} ${digits.substring(4, 7)} ${digits.substring(7)}"
+        } else {
+            number // Return as-is if not valid length
+        }
+    }
+
 }
