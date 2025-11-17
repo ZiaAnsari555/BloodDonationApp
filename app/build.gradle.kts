@@ -18,6 +18,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    signingConfigs {
+//        release {
+//            storeFile file('/Users/HelDesk/StudioProjects/BloodDonationApp/BloodDonation')
+//            storePassword 'blooddonation'
+//            keyAlias 'blooddonation'
+//            keyPassword 'blooddonation'
+//        }
+//    }
+
     buildTypes {
         release {
             isMinifyEnabled = false

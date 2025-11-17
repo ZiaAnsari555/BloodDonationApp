@@ -1,8 +1,7 @@
 <resources>
-    <string name="add_id">ca-app-pub-1452245892926859~8396926072</string>
-    <string name="add_banner_id">ca-app-pub-1452245892926859/7891737038</string>
-    <string name="app_name">Blood Donation</string>
-    <string name="villa_rica_wholesale">Villa Rica Wholesale</string>
+    <string name="add_id">ca-app-pub-1452245892926859~8882902466</string>
+    <string name="add_banner_id">ca-app-pub-1452245892926859/1543221967</string>
+    <string name="app_name">Pak Donors</string>
     <string name="email">Enter your email</string>
     <string name="password">Enter your password</string>
     <string name="login">Login</string>
